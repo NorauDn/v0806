@@ -12,7 +12,7 @@ namespace v0806
 {
     public partial class Form1 : Form
     {
-        int vx=-10, vy=-10,vt=120,vt2=10;
+        int vx=-10, vy=-10, vt=100, vt2=30;
         string a = "ピンチ！＼(・ω・＼)";
         public Form1()
         {
@@ -33,40 +33,25 @@ namespace v0806
 
             if (label1.Left < 0)
             {
-                vx = Math.Abs(vx); 
-            }
-
-            if(label1.Top < 0)
-            {
-                vy = Math.Abs(vy);
-            }
-
-            if (label1.Right > ClientSize.Height-50)
-            {
-                timer1.Interval = vt2;
-            }
-            else
-            {
+                vx = Math.Abs(vx) * 11 / 10;
                 timer1.Interval = vt;
             }
-
-            if (label1.Top > ClientSize.Height-50)
+            if(label1.Top < 0)
             {
-                timer1.Interval = vt2;
-            }
-            else
-            {
+                vy = Math.Abs(vy) * 11 / 10;
                 timer1.Interval = vt;
             }
 
             if (label1.Right > ClientSize.Height)
             {
-                vx = -Math.Abs(vx);
+                vx = -Math.Abs(vx) * 11 / 10;
+                timer1.Interval = vt2;
             }
 
             if (label1.Top > ClientSize.Height)
             {
-                vy = -Math.Abs(vy);
+                vy = -Math.Abs(vy) * 11 / 10;
+                timer1.Interval = vt2;
             }
 
 
