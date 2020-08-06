@@ -12,7 +12,7 @@ namespace v0806
 {
     public partial class Form1 : Form
     {
-        int vx=-10, vy=-10, vt=100, vt2=30;
+        int vx=-10, vy=-10, vt=60, vt2=30;
         string a = "ピンチ！＼(・ω・＼)";
         public Form1()
         {
@@ -27,6 +27,13 @@ namespace v0806
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Point mp = MousePosition;
+            mp = PointToClient(mp);
+            label2.Left = mp.X ;
+            label2.Top = mp.Y;
+            label2.Text = "" + mp.X + "," + mp.Y;
+
+
             label1.Left += vx;
             label1.Top += vy;
 
@@ -65,16 +72,6 @@ namespace v0806
         {
             //MessageBox.Show("幅" + ClientSize.Width);
             //MessageBox.Show("高さ" + ClientSize.Height);
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-
         }
     }
 }
